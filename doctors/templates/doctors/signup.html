@@ -1,0 +1,42 @@
+{% extends 'doctors/base.html' %}
+
+{% block content %}
+  <title>Healo Signup</title>
+  <div class="signup-form-container">
+    <!-- Display messages from Django -->
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+          <div class="{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <form class="signup-form" method="POST" action="{% url 'doctorsignup' %}">
+      {% csrf_token %}
+      <h2 class="text-center form-heading">Physician Sign Up</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" pattern="[0-9]*" inputmode="numeric" class="form-control" name="phone_number" placeholder="Phone Number">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <!-- Add login text link below signup button -->
+    <div class="text-center">
+      <p>Already have an account? <a href="{% url 'doctorlogin' %}" class="text-link">Login</a></p>
+    </div>
+  </div>
+{% endblock %}

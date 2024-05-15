@@ -1,0 +1,29 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+    <h1>Sessions Homepage</h1>
+
+    <form action="{% url 'create_therapy_log' %}" method="post">
+        {% csrf_token %}
+        <label for="post_content">Post Content:</label><br>
+        <textarea id="post_content" name="post_content" rows="4" cols="50"></textarea><br>
+        <label for="heart_rate">Heart Rate:</label>
+        <input type="number" id="heart_rate" name="heart_rate"><br>
+        <label for="blood_pressure_systolic">Systolic Blood Pressure:</label>
+        <input type="number" id="blood_pressure_systolic" name="blood_pressure_systolic"><br>
+        <label for="blood_pressure_diastolic">Diastolic Blood Pressure:</label>
+        <input type="number" id="blood_pressure_diastolic" name="blood_pressure_diastolic"><br>
+        <label for="body_temperature">Body Temperature:</label>
+        <input type="number" id="body_temperature" name="body_temperature"><br>
+        <label for="blood_oxygen_saturation">Blood Oxygen Saturation:</label>
+        <input type="number" id="blood_oxygen_saturation" name="blood_oxygen_saturation"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Previous Sessions:</h2>
+    <ul>
+        {% for session in sessions %}
+            <li>{{ session.date }} - {{ session.post_content }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

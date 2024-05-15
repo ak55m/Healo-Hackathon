@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'doctors/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'doctors/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'doctors/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'doctors/css/style.css' %}">
+    
+    {% comment %} <title>Home page</title> {% endcomment %}
+</head>
+<body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+    <div class="site-navbar-wrap">
+        <div class="site-navbar site-navbar-target js-sticky-header">
+            <div class="container" >
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <h1 class="my-0 site-logo"><a href="{% url 'doctorhome' %}">HEALO</a></h1>
+                    </div>
+                    <div class="col-10">
+                        <nav class="site-navigation text-right" role="navigation">
+                            <div class="container">
+                                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                                    <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+                                </div>
+                                <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                    <li class="active"><a href="{% url 'doctorhome' %}" class="nav-link">Home</a></li>
+                                    <li><a href="{% url 'home' %}" class="nav-link">Patients</a></li>
+                                    {% if request.user.is_authenticated and request.user.is_doctor %}
+                                        <li><a href="#gallery-section" class="nav-link">My Profile</a></li>
+
+                                        <li><a href="#gallery-section" class="nav-link">Prescriptions</a></li>
+
+                                        <li><a href="{% url 'doctorvisits' %}" class="nav-link">Appointment</a></li>
+
+
+                                        <li><a href="{% url 'doctor_message' %}" class="nav-link">Messages</a></li>
+
+
+                                        <li><a href="{% url 'doctorlogout' %}" class="nav-link">Logout</a></li>
+                                        {% else %}
+                                        <li><a href="{% url 'doctorlogin' %}" class="nav-link">Login</a></li>
+
+                                    {% endif %}
+                                    <li><a href="{% url 'doctoraboutus' %}" class="nav-link">About</a></li>
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content block where child template content will be inserted -->
+    <div class="container mt-4">
+        {% block content %}
+        <!-- Default content or placeholder if none provided -->
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'doctors/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'doctors/js/popper.min.js' %}"></script>
+    <script src="{% static 'doctors/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'doctors/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'doctors/js/main.js' %}"></script>
+</body>
+</html>

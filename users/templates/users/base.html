@@ -1,0 +1,80 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'users/fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    
+    {% comment %} <title>Home page</title> {% endcomment %}
+</head>
+<body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+    <div class="site-navbar-wrap">
+      <div class="site-navbar site-navbar-target js-sticky-header">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-2">
+                      <h1 class="my-0 site-logo"><a href="{% url 'home' %}">HEALO</a></h1>
+                  </div>
+                  <div class="col-10">
+                      <nav class="site-navigation text-right" role="navigation">
+                          <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                              <a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a>
+                            </div>
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                              <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                              <li><a href="{% url 'doctorhome' %}" class="nav-link">Physicians</a></li>
+
+                              {% if request.user.is_authenticated and not request.user.is_doctor %}
+                              <li><a href="{% url 'visits' %}" class="nav-link">Visits</a></li>
+                              <li><a href="#gallery-section" class="nav-link">Messages</a></li>
+                              <li><a href="{% url 'sessions' %}" class="nav-link">Sessions</a></li>
+                              <li class="nav-item">
+                                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                              </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                    </li>
+                                {% endif %}
+                                <li><a href="{% url 'aboutus' %}" class="nav-link">About</a></li>
+                          </ul>
+                          </div>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <!-- Content block where child template content will be inserted -->
+    <div class="container mt-4">
+        {% block content %}
+        <!-- Default content or placeholder if none provided -->
+        {% endblock %}
+    </div>
+
+    <script src="{% static 'users/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'users/js/popper.min.js' %}"></script>
+    <script src="{% static 'users/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'users/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'users/js/main.js' %}"></script>
+</body>
+</html>

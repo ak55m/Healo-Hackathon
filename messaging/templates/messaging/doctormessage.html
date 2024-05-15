@@ -1,0 +1,53 @@
+{% extends 'doctors/base.html' %}
+
+{% block title %}Messaging{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="chat-container">
+  <div class="sidebar">
+    <h3>Contacts</h3>
+    <div class="contact active">
+      <img src="doctor1.jpg" alt="Doctor 1">
+      <span class="contact-name">Dr. Smith</span>
+    </div>
+    <div class="contact">
+      <img src="doctor2.jpg" alt="Doctor 2">
+      <span class="contact-name">Dr. Johnson</span>
+    </div>
+    <!-- More contacts go here -->
+  </div>
+  <div class="chat">
+    <div class="chat-header">
+      <img src="doctor1.jpg" alt="Doctor 1">
+      <span class="contact-name">Dr. Smith</span>
+    </div>
+    <div class="chat-messages">
+      <div class="message doctor">
+        <p>Hello! How can I assist you today?</p>
+        <span class="message-time">10:00 AM</span>
+      </div>
+      <div class="message user">
+        <p>I'm experiencing some symptoms...</p>
+        <span class="message-time">10:05 AM</span>
+      </div>
+      <!-- More messages go here -->
+    </div>
+    <div class="chat-input">
+      <textarea placeholder="Type your message here..."></textarea>
+      <button>Send</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

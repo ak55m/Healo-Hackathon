@@ -1,0 +1,48 @@
+{% extends 'doctors/base.html' %}
+
+
+{% block content %}
+<title>Physician's Dashboard</title>
+<div class="dashboard-container">
+    <div class="activity-feed-header">
+        <h2>Patient Feed</h2>
+    </div>
+    <div class="activity-feed">
+        <div class="post" id="post1">
+            <div class="post-header">
+                {% comment %} <img src="" alt="Patient Photo" class="patient-photo"> {% endcomment %}
+                <div class="patient-info" >
+                    <a href="" class="patient-name">John Doe</a>
+                    <p class="activity-time">March 25, 2024 | 10:00 AM</p>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>30-minute physiotherapy session completed. Patient reported mild discomfort.</p>
+                <div class="health-metrics">
+                    <span>Heart Rate: 78 bpm</span> |
+                    <span>Blood Pressure: 120/80 mmHg</span>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat for other posts -->
+        <div class="post" id="post1">
+          <div class="post-header">
+              {% comment %} <img src="" alt="Patient Photo" class="patient-photo"> {% endcomment %}
+              <div class="patient-info" >
+                  <a href="" class="patient-name">John Doe</a>
+                  <p class="activity-time">March 25, 2024 | 10:00 AM</p>
+              </div>
+          </div>
+          <div class="post-content">
+              <p>30-minute physiotherapy session completed. Patient reported mild discomfort.</p>
+              <div class="health-metrics">
+                  <span>Heart Rate: 78 bpm</span> |
+                  <span>Blood Pressure: 120/80 mmHg</span>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock %}
+
+

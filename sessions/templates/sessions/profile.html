@@ -1,0 +1,40 @@
+{% extends 'users/base.html' %}
+
+{% block title %}Messaging{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Profile</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="profile-container">
+    <div class="profile">
+        <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+        <h2 class="name">Patient Name</h2>
+    </div>
+    <div class="content">
+        <div class="post-section">
+            <input type="text" placeholder="Write a post..." class="post-input">
+            <button class="post-button">Post</button>
+        </div>
+        <div class="physiological-data">
+            <input type="text" placeholder="Heart Rate" class="data-input">
+            <input type="text" placeholder="Blood Pressure (Systolic)" class="data-input">
+            <input type="text" placeholder="Blood Pressure (Diastolic)" class="data-input">
+            <input type="text" placeholder="Body Temperature" class="data-input">
+            <input type="text" placeholder="Blood Oxygen Saturation" class="data-input">
+        </div>
+        <div class="posts">
+            <!-- Posts will be dynamically added here -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}
